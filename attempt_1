@@ -1,0 +1,15 @@
+flw_colors = ["yellow", "blue"]
+yellow_flowers = ["yellow iris", "touch me not", "trout-lilu"]
+
+
+possible_flw = []
+while True:
+    color_q = input(f'What color is your flower (options {flw_colors})?')
+    if color_q == "yellow":
+        possible_flw.append(yellow_flowers)
+        print(possible_flw)
+    else:
+        print("xxx")
+        break
+
+
