@@ -1,3 +1,11 @@
+print("""Welcome to find-your-flower!! After answering 
+a few questions you should be able to know what species your flower is.\n 
+A Note: flower shapes are defined as...""")
+# (lily family, parsley family,
+# daisy like, buttercup like, milkweed family, rose family, crowded spike,
+# blue bell and pea family)
+##Add pictures about what flower shape means
+
 class flower:
     color = ""
     size = ""
@@ -26,37 +34,43 @@ Tiger_Lily = flower("orange", "waist height", "lily family", 6, "Liliumm tigrinu
 flw_list.append(Tiger_Lily)
 Butterfly_Weed = flower("orange", "small", "milkweed family", 0, "Asclepias tuberosa", "Butterfly Weed" )
 flw_list.append(Butterfly_Weed)
+Pasture_Rose = flower("pink", "small", "rose family", 5,"Rosa carolina", "Pasture Rose")
+flw_list.append(Pasture_Rose)
+Blazing_Star = flower("pink", "knee height", "crowded spikes", 0, "Liatris pycnostachya", "Blazing Star")
+flw_list.append(Blazing_Star)
+Lupine = flower("violet", "knee height", "pea family",2, "Lupinus prennis", "Lupine")
+flw_list.append(Lupine)
+Lobelia = flower("violet", "knee height", "blue bell family", 5, "Lobelia siphilitica", "Lobelia")
+flw_list.append(Lobelia)
 
-flw_color = input("What color is your flower? Options: white, yellow, orange: ")
-
+flw_shape_list = ["lily family", "parsley family", 
+"daisy like","buttercup like", "milkweed family", 
+"blue bell family", "crowded spikes","rose family",
+"pea family"]
+possible_flw =[]
+flw_color = input("What color is your flower? Options: white, yellow, orange, pink, violet: ")
 for f in flw_list:
     if flw_color == f.color:
         print("Your flower could be a:\n" + f.name)
+
 flw_size = input("What size is your flower? Options: small, knee height, waist height: ")
 for f in flw_list: 
     if flw_color == f.color and flw_size == f.size:
+        possible_flw.append(f.name)
         print("Your flower could be a:\n" + f.name)
-    else:
-        print("Your flower isn't in the database.\n You can add it by answering the next several questions")
-        flw_shape = input("What shape is your flower? Options: lily family, parsley family, daisy like, buttercup like, milkweed family: ")
-        flw_num = input("How many petals does your flower have? If N/A put 0: ")
-        flw_latin_binom = input("What is your flower's latin binomial? If unkown write xxx: ")
-        flw_name = input("What is your flower's name? If unknown put xxx: ")
-        unknown_flower = flower(flw_color, flw_size, flw_shape, flw_num, flw_latin_binom, flw_name)
-        flw_list.append(unknown_flower)
-        for f in flw_list:
-            print(f.name, f.color, f.size)
-        y_n = input("Do you see your flower?[y/n]")
-        if y_n == 'y':
-            break
+        if len(possible_flw) == 1:
+            exit()
 
-
-flw_shape = input("What shape is your flower? Options: lily family, parsley family, daisy like, buttercup like, milkweed family: ")
+flw_shape = input(f"What shape is your flower? Options: {flw_shape_list}")
 for f in flw_list:
     if flw_color == f.color and flw_size == f.size and flw_shape == f.shape:
-        print( "Your flower could be a:\n" + f.name)
-    else:
-        print("Your flower isn't in the database.\n You can add it by answering the next several questions")
+        possible_flw.append(f.name)
+        print("Your flower could be a:\n" + f.name)
+        if len(possible_flw) == 1:
+            exit()
+
+
+
         
 
 
